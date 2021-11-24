@@ -15,6 +15,9 @@ class CreateChainsTable extends Migration
     {
         Schema::create('chains', function (Blueprint $table) {
             $table->id();
+            $table->string('name',191);
+            $table->double('value')->unsigned();
+            $table->date('publish');
             $table->timestamps();
         });
     }
