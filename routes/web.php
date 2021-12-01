@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return "welcome2";
 });
+
+
+
+Route::resource( "coins", CoinsController::class);
+Route::resource( "chains", ChainsController::class);
