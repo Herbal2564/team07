@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Chains;
+use App\Models\Coin;
 use Illuminate\Http\Request;
 
 class CoinsController extends Controller
@@ -11,10 +11,13 @@ class CoinsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        //
-        return chains::all()->toArray();
+
+        $coins = Coin::all();
+        return view('coins.index')->with(['coins'=>$coins]);
     }
 
     /**
@@ -46,7 +49,10 @@ class CoinsController extends Controller
      */
     public function show($id)
     {
-        //
+
+        //return "顯示單一筆幣種的紀錄(id = " . $id .")";
+        $coin = coin ::findOrFail($id);
+        return view('coins.show')->with(['coin'=>$coin]);
     }
 
     /**

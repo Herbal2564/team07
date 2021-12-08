@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ChainsController;
+use App\Http\Controllers\CoinsController;
 use Illuminate\Support\Facades\Route;
 
 
