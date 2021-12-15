@@ -63,6 +63,9 @@ class ChainsController extends Controller
      */
     public function edit($id)
     {
+        //return "顯示單一筆幣種的紀錄(id = " . $id .")";
+        $chain = chain ::findOrFail($id);
+        return view('chains.edit')->with(['chain'=>$chain]);
         //
     }
 
@@ -76,6 +79,16 @@ class ChainsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $chain = Chain::findOrFail($id);
+
+        $chain->name = $request ->input('name');
+        $chain->value = $request ->input('value');
+        $chain->publish = $request ->input('publish');
+
+
+
+        $chain->save();
+        return redirect('chains');
     }
 
     /**
@@ -87,5 +100,8 @@ class ChainsController extends Controller
     public function destroy($id)
     {
         //
+        $chain=Chain::findorFail($id);
+        $chain->delete();
+        return redirect('chains');
     }
 }

@@ -15,6 +15,10 @@
         <th>最高</th>
         <th>最低</th>
         <th>發行日期</th>
+        <th>操作一</th>
+        <th>操作二</th>
+        <th>操作三</th>
+
         </tr>
     @foreach($coins as $coin )
         <tr>
@@ -31,8 +35,22 @@
                     詳情
                 </a>
             </td>
+            <td>
+                <a href="coins/{{$coin->id}}/edit">
+                    修改
+                </a>
+            </td>
+            <td>
+                <form method="post" action="coins/{{$coin->id}}">
+                    @csrf
+                    @method("delete")
+                    <input type="submit" value="刪除"/>
+                </form>
+            </td>>
 
         </tr>
+
+
     @endforeach
 
 </table>

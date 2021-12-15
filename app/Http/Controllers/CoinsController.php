@@ -63,6 +63,9 @@ class CoinsController extends Controller
      */
     public function edit($id)
     {
+        //return "顯示單一筆幣種的紀錄(id = " . $id .")";
+        $coin = coin ::findOrFail($id);
+        return view('coins.edit')->with(['coin'=>$coin]);
         //
     }
 
@@ -75,7 +78,19 @@ class CoinsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $coin = Coin::findorFail($id);
+        $coin->name = $request ->input('name');
+        $coin->cid = $request ->input('cid');
+        $coin->kind = $request ->input('kind');
+        $coin->lockup = $request ->input('lockup');
+        $coin->highest = $request ->input('highest');
+        $coin->lowest = $request ->input('lowest');
+        $coin->publish = $request ->input('publish');
+
+        $coin->save();
+
+        return redirect('coins');
     }
 
     /**
@@ -87,5 +102,8 @@ class CoinsController extends Controller
     public function destroy($id)
     {
         //
+        $coin=Coin::findOrFail($id);
+        $coin->delete();
+        return redirect('coins');
     }
 }

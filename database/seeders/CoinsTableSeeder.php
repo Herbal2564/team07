@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use http\Env\Request;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -215,6 +216,7 @@ class CoinsTableSeeder extends Seeder
             'publish'=>20210510,
 
         ]);
+
 
 
 
