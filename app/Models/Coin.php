@@ -22,8 +22,28 @@ class Coin extends Model
     {
         return $this->belongsTo('App\Models\Chain','cid','id');
     }
-    //public function kind($query)
-    //{
-    //    $query->where('kind')
-    //}
+
+    public function scopeDEX($query)
+    {
+        $query->where('kind','=','DEX')
+            ->orderBy('kind');
+    }
+
+    public function scopelend($query)
+    {
+        $query->where('kind','=','借貸')
+            ->orderBy('kind');
+    }
+
+    public function scopetoken($query)
+    {
+        $query->where('kind','=','代幣')
+            ->orderBy('kind');
+    }
+
+    public function scopedate($query)
+    {
+        $query->where('publish','<','2021-1-01')
+            ->orderBy('publish');
+    }
 }

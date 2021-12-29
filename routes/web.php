@@ -17,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return "welcome2";
+    return redirect('coins');
 });
-
+Route::get('coins/senior',[CoinsController::class,'DEX'])->name('coins.DEX');
+Route::get('coins/lend',[CoinsController::class,'lend'])->name('coins.lend');
+Route::get('coins/token',[CoinsController::class,'token'])->name('coins.token');
+Route::get('coins/date',[CoinsController::class,'date'])->name('coins.date');
 
 
 Route::resource( "coins", CoinsController::class);

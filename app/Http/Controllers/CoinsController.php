@@ -127,9 +127,31 @@ class CoinsController extends Controller
         $coin->delete();
         return redirect('coins');
     }
-    //public function kind()
-    //{
-        //$coins = coin ::kind()->get();
-        //return view('coins.index',['coins'=>$coins]);
-   // }
+    public function kind()
+    {
+        $coins = Coin::kind()->get();
+        return view('coins.index',['coins'=>$coins]);
+    }
+    public function DEX()
+    {
+        $coins = Coin::DEX()->get();
+        return view('coins.index',['coins'=>$coins]);
+    }
+    public function lend()
+    {
+        $coins = Coin::lend()->get();
+        return view('coins.index',['coins'=>$coins]);
+    }
+    public function token()
+    {
+        $coins = Coin::token()->get();
+        return view('coins.index',['coins'=>$coins]);
+    }
+
+    public function date()
+    {
+        $coins = Coin::date()->get();
+        return view('coins.index',['coins'=>$coins]);
+    }
+
 }
