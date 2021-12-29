@@ -28,6 +28,8 @@ class ChainsController extends Controller
     public function create()
     {
         //
+        return view('chains.create');
+
     }
 
     /**
@@ -38,7 +40,18 @@ class ChainsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request ->input('name');
+        $value = $request ->input('value');
+        $publish = $request ->input('publish');
+
+        Chain::create(
+            [
+                'name'=>$name,
+                'value'=>$value,
+                'publish'=>$publish
+            ]
+        );
+        return redirect('chains');
     }
 
     /**

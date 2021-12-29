@@ -15,16 +15,26 @@
    </tr>>
         <tr>
         <td>區塊鏈</td>
-            <td><input type="text" name="name" value="{{$chain->name}}"/></td>
+            <td><select id="name" name="name">
+                    <option value="1">Ethereum</option>
+                    <option value="2">BSC</option>
+                    <option value="3" selected>Polygon</option>
+                </select></td>
         </tr>
         <tr>
         <td>市值</td>
-            <td><input type="text" name="value" value="{{$chain->value}}"/></td>
+            <td><input type="text" name="value" value="{{$chain->value}}"></td>
         </tr>
         <tr>
-        <td>發行日期</td>
-            <td><input type="text" name="publish" value="{{$chain->publish}}"/></td>
 
+            <td>發行日期</td>
+            <td>
+                <form action="/action_page.php">
+
+                    <input type="date"  name="publish"  value="{{$chain->publish}}" required>
+                </form>
+
+            </td>>
     </tr>
 
 

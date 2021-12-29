@@ -2,9 +2,18 @@
 <head>
     <meta charset="UTF-8"/>
     <title>顯示所有幣種資料</title>
-</head>>
-<body>
-顯示所有幣種資料
+</head>
+<br>
+顯示所有幣種資料</br>
+<a href="chains">
+    顯示所有區塊鏈資料
+</a>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">Surprise</a>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="coins/create">
+    新增球員資料
+</a>
 <table border="1">
     <tr>
         <th>編號</th>
@@ -19,6 +28,7 @@
         <th>操作二</th>
         <th>操作三</th>
 
+        </th>
         </tr>
     @foreach($coins as $coin )
         <tr>
@@ -46,7 +56,7 @@
                     @method("delete")
                     <input type="submit" value="刪除"/>
                 </form>
-            </td>>
+            </td>
 
         </tr>
 

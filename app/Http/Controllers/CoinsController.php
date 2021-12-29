@@ -16,7 +16,7 @@ class CoinsController extends Controller
     public function index()
     {
 
-        $coins = Coin::all();
+        $coins = Coin::all()->sortBy('cid');
         return view('coins.index')->with(['coins'=>$coins]);
     }
 
@@ -28,6 +28,8 @@ class CoinsController extends Controller
     public function create()
     {
         //
+        return view('coins.create');
+
     }
 
     /**
@@ -38,7 +40,26 @@ class CoinsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request ->input('name');
+        $cid = $request ->input('cid');
+        $kind = $request ->input('kind');
+        $lockup = $request ->input('lockup');
+        $highest = $request ->input('highest');
+        $lowest = $request ->input('lowest');
+        $publish = $request ->input('publish');
+
+        Coin::create(
+            [
+                'name'=>$name,
+                'cid'=>$cid,
+                'kind'=>$kind,
+                'lockup'=>$lockup,
+                'highest'=>$highest,
+                'lowest'=>$lowest,
+                'publish'=>$publish
+            ]
+        );
+        return redirect('coins');
     }
 
     /**
@@ -106,4 +127,9 @@ class CoinsController extends Controller
         $coin->delete();
         return redirect('coins');
     }
+    //public function kind()
+    //{
+        //$coins = coin ::kind()->get();
+        //return view('coins.index',['coins'=>$coins]);
+   // }
 }

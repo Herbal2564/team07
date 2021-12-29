@@ -19,11 +19,19 @@
         </tr>
         <tr>
             <td>區塊鏈</td>
-            <td><input type="text" name="cid" value="{{$coin->cid}}"/></td>
+            <td><select id="cid" name="cid">
+                    <option value="1">Ethereum</option>
+                    <option value="2">BSC</option>
+                    <option value="3" selected>Polygon</option>
+                </select></td>
+
         </tr>
         <tr>
             <td>分類</td>
             <td><input type="text" name="kind" value="{{$coin->kind}}"/></td>
+
+
+
 
         </tr>
         <tr>
@@ -41,12 +49,15 @@
             <td><input type="text" name="lowest" value="{{$coin->lowest}}"/></td>
 
         </tr>
-        <tr>
-            <td>發行日期</td>
-            <td><input type="text" name="publish" value="{{$coin->publish}}"/></td>
 
-        </tr>
+        <td>發行日期</td>
+         <td>
+             <form action="/action_page.php">
 
+                 <input type="date"  name="publish"  value="{{$coin->publish}}" required>
+            </form>
+
+        </td>>
 
     </table>
     <input type="submit" value="修改"/><input type="reset" value="重新輸入"/>

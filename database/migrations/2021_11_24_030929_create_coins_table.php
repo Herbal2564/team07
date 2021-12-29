@@ -16,13 +16,14 @@ class CreateCoinsTable extends Migration
         Schema::create('coins', function (Blueprint $table) {
             $table->id();
             $table->string('name',191);
-            $table->integer('cid')->unsigned();
+            $table->foreignId('cid')->unsigned();
             $table->string('kind',191);
             $table->double('lockup')->unsigned();
             $table->double('highest')->unsigned();
             $table->double('lowest')->unsigned();
             $table->date('publish');
             $table->timestamps();
+            $table->foreign('cid')->references('id')->on('chains')->onDelete('cascade');
         });
     }
 
