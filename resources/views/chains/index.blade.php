@@ -8,16 +8,16 @@
 
     <br>
     顯示所有區塊鏈資料</br>
-    <a href="http://127.0.0.1:8000/coins">
-        顯示所有幣種資料
-    </a>
-    &emsp;&emsp;&emsp;&emsp;&emsp;
-    <a href="{{route('chains.date')}}">
-        顯示老區塊鏈
-    </a>
-    &emsp;&emsp;&emsp;
-    <a href =https://memeprod.sgp1.digitaloceanspaces.com/meme/4ba453e5bc5d80a6790ce60411e738ce.png>Smile</a>
-    &emsp;&emsp;&emsp;&emsp;
+    <select onchange="location = this.options[this.selectedIndex].value;">
+        <option value="#">請選擇</option>
+        <option value="http://127.0.0.1:8000/chains"> 顯示所有區塊鏈資料</option>
+        <option value="{{route('chains.date')}}"> 顯示老區塊鏈</option>
+
+
+    </select>
+
+
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
     <a href="chains/create">
         新增區塊鏈
     </a>
@@ -61,4 +61,5 @@
         @endforeach
 
     </table>
+    <a href =https://memeprod.sgp1.digitaloceanspaces.com/meme/4ba453e5bc5d80a6790ce60411e738ce.png>Smile</a>
 @endsection

@@ -6,45 +6,19 @@
     <meta charset="UTF-8"/>
     <title>顯示所有幣種資料</title>
     </head>
-    <body>
+
     <br>
     顯示所有幣種資料</br>
-    <a href="http://127.0.0.1:8000/chains">
-        顯示所有區塊鏈資料
-    </a>
+
     <select onchange="location = this.options[this.selectedIndex].value;">
         <option value="#">請選擇</option>
         <option value="{{route('coins.index')}}"> 顯示所有幣種</option>
         <option value="{{route('coins.DEX')}}"> 顯示DEX類別的幣種</option>
-        <option value="#">請選擇</option>
+        <option value="{{route('coins.lend')}}">顯示借貸類別的幣種</option>
+        <option value="{{route('coins.token')}}">顯示代幣類別的幣種</option>
+        <option value="{{route('coins.date')}}">顯示老幣種</option>
+
     </select>
-
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    <a href="{{route('coins.index')}}">
-        顯示所有幣種
-    </a>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    <a href="{{route('coins.DEX')}}">
-        顯示DEX類別的幣種
-    </a>
-
-
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    <a href="{{route('coins.lend')}}">
-        顯示借貸類別的幣種
-    </a>
-
-
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    <a href="{{route('coins.token')}}">
-        顯示代幣類別的幣種
-    </a>
-
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    <a href="{{route('coins.date')}}">
-        顯示老幣種
-    </a>
-
 
 
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;

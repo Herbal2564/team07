@@ -14,7 +14,7 @@
             <tr>
                 <td>編號</td>
                 <td>{{$coin->id}}</td>
-            </tr>>
+            </tr>
             <tr>
                 <td>幣種</td>
                 <td><input type="text" name="name" value="{{$coin->name}}"/></td>
@@ -59,7 +59,7 @@
                     <input type="date"  name="publish"  value="{{$coin->publish}}" required>
                 </form>
 
-            </td>>
+            </td>
 
         </table>
         <input type="submit" value="修改"/><input type="reset" value="重新輸入"/>
