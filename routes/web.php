@@ -23,7 +23,7 @@ Route::get('coins/senior',[CoinsController::class,'DEX'])->name('coins.DEX');
 Route::get('coins/lend',[CoinsController::class,'lend'])->name('coins.lend');
 Route::get('coins/token',[CoinsController::class,'token'])->name('coins.token');
 Route::get('coins/date',[CoinsController::class,'date'])->name('coins.date');
-
+Route::get('chains/date',[ChainsController::class,'date'])->name('chains.date');
 
 Route::resource( "coins", CoinsController::class);
 Route::resource( "chains", ChainsController::class);

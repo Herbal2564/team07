@@ -18,4 +18,11 @@ class Chain extends Model
     {
         return $this->hasMany('App\Models\Coin','cid');
     }
+    public function scopedate($query)
+    {
+        $query->where('publish','<','2019-1-01')
+            ->orderBy('publish');
+    }
+
+
 }

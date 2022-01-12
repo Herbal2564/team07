@@ -117,4 +117,62 @@ class ChainsController extends Controller
         $chain->delete();
         return redirect('chains');
     }
+
+
+    public function date()
+    {
+        $chains = Chain::date()->get();
+        return view('chains.index',['chains'=>$chains]);
+    }
+
+    public function api_chains()
+    {
+        return Chain::all();
+    }
+
+    public function api_update(Request $request)
+    {
+        $chain = Chain::find($request->input('id'));
+        if ($chain == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+
+        $chain->name = $request->input('name');
+        $chain->value = $request->input('city');
+        $chain->publish = $request->input('home');
+
+        if ($chain->save())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+    }
+
+    public function api_delete(Request $request)
+    {
+        $chain = Chain::find($request->input('id'));
+
+        if ($chain == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+
+        if ($chain->delete())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        }
+
+    }
 }

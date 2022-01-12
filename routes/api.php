@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChainsController;
+use App\Http\Controllers\CoinsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,5 +24,10 @@ use Illuminate\Support\Facades\Route;
 route::post('register', [AuthController::class, 'register']);
 route::post('login', [AuthController::class, 'login']);
 route::group(['middleware' => 'auth:sanctum'], function() {
-
+    route::get('chains',[ChainsController::class, 'api_chains']);
+    route::patch('chains',[ChainsController::class, 'api_update']);
+    route::delete('chains',[ChainsController::class, 'api_delete']);
+    route::get('coins',[CoinsController::class, 'api_coins']);
+    route::patch('coins',[CoinsController::class, 'api_update']);
+    route::delete('coins',[CoinsController::class, 'api_delete']);
 });

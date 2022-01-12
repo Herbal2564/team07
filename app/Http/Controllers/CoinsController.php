@@ -154,4 +154,60 @@ class CoinsController extends Controller
         return view('coins.index',['coins'=>$coins]);
     }
 
+
+    public function api_coins()
+    {
+        return Coin::all();
+    }
+
+
+    public function api_update(Request $request)
+    {
+        $coin = Coin::find($request->input('id'));
+        if ($coin == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+        $coin->name = $request ->input('name');
+        $coin->cid = $request ->input('cid');
+        $coin->kind = $request ->input('kind');
+        $coin->lockup = $request ->input('lockup');
+        $coin->highest = $request ->input('highest');
+        $coin->lowest = $request ->input('lowest');
+        $coin->publish = $request ->input('publish');
+
+        if ($coin->save())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+    }
+
+    public function api_delete(Request $request)
+    {
+        $coin = Coin::find($request->input('id'));
+
+        if ($coin == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+
+        if ($coin->delete())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        }
+    }
+
+
 }
